@@ -373,6 +373,7 @@ class ImagesManager(BuildMixin, Manager):
 
             noTrunc (bool): Do not truncate any result string. Default: True.
             limit (int): Maximum number of results.
+            listTags (bool): List the available tags in the repository for the specified image. Default: False
 
         Raises:
             APIError: when service returns an error
@@ -380,6 +381,7 @@ class ImagesManager(BuildMixin, Manager):
         params = {
             "filters": api.prepare_filters(kwargs.get("filters")),
             "limit": kwargs.get("limit"),
+            "listTags": kwargs.get("list_tags"),
             "noTrunc": True,
             "term": [term],
         }
